@@ -21,4 +21,4 @@ Route::post('logout', [LoginController::class, 'logout'])->name('adminLogout');
 
 Route::get('/', function () {
     return view('home');
-})->name('admin');
+})->middleware('auth:admin')->name('admin');

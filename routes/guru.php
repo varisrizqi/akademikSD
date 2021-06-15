@@ -1,16 +1,15 @@
 <?php
 
-use App\Http\Controllers\Login\AdminLogin\LoginController;
+use App\Http\Controllers\Login\GuruLogin\LoginContoller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('login', [LoginContoller::class, 'index'])->name('guruLogin');
+Route::post('login', [LoginController::class, 'login'])->name('guruLoginPost');
+Route::post('logout', [LoginController::class, 'logout'])->name('guruLogout');
+
+
+Route::get('/', function () {
+    return view('home');
+})->middleware('auth:guru')->name('admin');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Login\AdminLogin;
+namespace App\Http\Controllers\Login\SiswaLogin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,13 +10,13 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('login.adminLogin.login');
+        return view('login.siswaLogin.login');
     }
 
     public function login(Request $request)
     {
         $validated = $request->validate([
-            'id' => 'required|exists:admins,id',
+            'id' => 'required|exists:siswa,id',
             'password' => 'required|min:8',
         ],
         [
@@ -26,11 +26,11 @@ class LoginController extends Controller
             'password.min' => "password harus 8 karakter ",
         ]);
 
-        if (Auth::guard('admin')->attempt($validated)) {
+        if (Auth::guard('siswa')->attempt($validated)) {
             $request->session()->regenerate();
-            return redirect()->intended('admin');
+            return redirect()->intended('siswa');
         }
-        
+
         return back()->withErrors([
             'id' => 'The provided credentials do not match our records.',
         ]);
@@ -44,6 +44,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect(route('adminLogin'));
+        return redirect(route('siswaLogin'));
     }
 }
