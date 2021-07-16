@@ -16,13 +16,13 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $validated = $request->validate([
-            'id' => 'required|exists:siswa,id',
+            'nipdn' => 'required|exists:siswa,nipdn',
             'password' => 'required|min:8',
         ],
         [
-            'id.required' => "id harus di tambahkan",
+            'nipdn.required' => "nipdn harus di tambahkan",
             'password.required' => "password harus di tambahkan",
-            'id.exists' => "id tidak ditemukan",
+            'nipdn.exists' => "nipdn tidak ditemukan",
             'password.min' => "password harus 8 karakter ",
         ]);
 

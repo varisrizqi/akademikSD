@@ -1,0 +1,3 @@
+guru (NIP)
+admin (NUPTK)
+siswa (NIPDN)

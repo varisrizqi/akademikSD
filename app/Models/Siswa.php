@@ -18,12 +18,19 @@ class Siswa extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'nipdn',
+    //     'jenis_kelamin',
+    //     'nisn',
+    //     'tempat_lahir',
+    //     'tanggal_lahir',
+    //     'nik',
+    //     'email',
+    //     'password',
+    // ];
 
+    protected $guarded = [];
     /**
      * The attributes that should be hidden for arrays.
      *

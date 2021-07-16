@@ -15,25 +15,43 @@ class AkunSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'users',
-            'email' => 'users@gmail.com',
-            'password' => Hash::make('12345678'),
-        ]);
         DB::table('admins')->insert([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
+            'nuptk' => '12345678',
+            'jenis_kelamin' => 'p',
+            'tempat_lahir' => 'serang',
+            'tanggal_lahir' => now(),
+            'status_pegawai' => 'admin',
+            'agama' => 'islam',
+            'alamat_jalan' => 'serang',
+            'rt' => 'serang',
+            'rw' => 'serang',
+            'dusun' => 'serang',
+            'kecamatan' => 'serang',
+            'kode_pos' => 42356,
+            'tugas_tambahan' => 'admin',
+            'sk_cpns' => 'admin',
+            'sk_pengangkatan' => 'admin',
+            'tmt_pengangkatan' => now(),
+            'lembaga_pengangkatan' => 'dinas',
+            'sumber_gaji' => 'dinas',
+            'nama_ibu_kandung' => 'ibu',
+            'status_perkawinan' => 'tidak',
+            'kewarganegraan' => 'id',
+            'nik' => 12345678,
+            'no_kk' => 12345678,
             'password' => Hash::make('password'),
         ]);
-        DB::table('guru')->insert([
-            'name' => 'guru',
-            'email' => 'guru@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
-        DB::table('siswa')->insert([
-            'name' => 'siswa',
-            'email' => 'siswa@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
+        // DB::table('guru')->insert([
+        //     'name' => 'guru',
+        //     'email' => 'guru@gmail.com',
+        //     'password' => Hash::make('password'),
+        // ]);
+        // DB::table('siswa')->insert([
+        //     'name' => 'siswa',
+        //     'email' => 'siswa@gmail.com',
+        //     'password' => Hash::make('password'),
+        // ]);
     }
 }
