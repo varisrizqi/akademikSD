@@ -14,6 +14,9 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <!-- CSS Files -->
+  @if (isset($livewire))
+    @livewireStyles
+  @endif
   <link href=" {{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
   <link href="{{ asset('assets/css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -46,33 +49,21 @@
               <p>Home</p>
             </a>
           </li>
-          <li class="{{ $title == 'Data guru' ? 'active' : '' }}">
-            <a href="{{ route('dataGuru') }}">
-              <i class="nc-icon nc-glasses-2"></i>
-              <p>Data guru</p>
-            </a>
-          </li>
-          <li class="{{ $title == 'Data siswa' ? 'active' : '' }}">
-            <a href="javascript:;">
-              <i class="nc-icon nc-hat-3"></i>
-              <p>Data siswa</p>
-            </a>
-          </li>
-          <li class="{{ $title == 'Data admin' ? 'active' : '' }}">
-            <a href="javascript:;">
-              <i class="nc-icon nc-badge"></i>
-              <p>Data admin/staff</p>
-            </a>
-          </li>
           <li class="nav-item dropdown" style="margin-left: 0px">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="nc-icon nc-badge"></i>Dropdown link
+              <i class="nc-icon nc-badge"></i>Kelola Data Pengguna
             </a>
             <div class="dropdown-menu" style="margin-left: 50px" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="{{ route('dataGuru') }}">Data guru</a>
+              <a class="dropdown-item" href="{{ route('dataSiswa') }}">Data siswa</a>
+              <a class="dropdown-item" href="{{ route('dataAdmin') }}">Data admin/staff</a>
             </div>
+          </li>
+          <li class="{{ $title == 'Kelas' ? 'active' : '' }}">
+            <a href="{{ route('kelas') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Kelola Kelas</p>
+            </a>
           </li>
           {{-- <li class="">
             <div class="dropdown align-middle" style="margin-top: 10px; margin-left: 15px;margin-right: 15px;">
@@ -119,6 +110,9 @@
     
   </div>
   <!--   Core JS Files   -->
+  @if (isset($livewire))
+    @livewireScripts
+  @endif
   <script src="{{ asset('css/main.js')}}"></script>
   <script src="{{ asset('assets/js/core/jquery.min.js')}}"></script>
   <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>

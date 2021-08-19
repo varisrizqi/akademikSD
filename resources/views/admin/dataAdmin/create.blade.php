@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title'=>'Data guru'])
+@extends('layouts.app', ['title'=>'Tambah Data Admin'])
 @section('content')
 <div class="content">
     <div class="row">
@@ -6,12 +6,12 @@
             <div class="card card-plain">
               <div class="card card-user">
                 <div class="card-header">
-                  <h5 class="card-title ml-2">Tambah Data Guru</h5>
+                  <h5 class="card-title ml-2">Tambah Data Admin</h5>
                 </div>
                 <div class="card-body pr-5 pl-5">
-                  <form action="{{ route('dataGuru.update', $guru->id) }}" method="POST">
+                  <form action="{{ route('dataAdmin.store') }}" method="POST">
                     @csrf
-                    @method('PUT')
+                    @method('POST')
                     @if ($errors->any())
                       <div class="row">
                           <div class="alert alert-danger pr-5" style="width: 100%;">
@@ -29,19 +29,19 @@
                       <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>Nama <i class="text-warning">( *wajib )</i></label>
-                          <input name="nama" type="text" value="{{ old('nama') ? old('nama') : $guru->nama }}" class="form-control" placeholder="" >
+                          <input name="nama" type="text" class="form-control" placeholder="" value="{{ old('nama') }}">
                         </div>
                       </div>
                       <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>NIP <i class="text-warning">( *wajib )</i></label>
-                          <input name="nip" type="number" class="form-control" placeholder="" value="{{ old('nip') ? old('nip') : $guru->nip }}">
+                          <input name="nip" type="number" class="form-control" placeholder="" value="{{ old('nip') }}">
                         </div>
                       </div>
                       <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>NUPTK</label>
-                          <input name="nuptk" type="number" class="form-control" value="{{ old('nuptk') ? old('nuptk') : $guru->nuptk }}">
+                          <input name="nuptk" type="number" class="form-control" value="{{ old('nuptk') }}">
                         </div>
                       </div>
                     </div>
@@ -51,25 +51,21 @@
                           <label for="jenis_kelamin">Jenis kelamin <i class="text-warning">( *wajib )</i></label>
                           <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
                             <option disabled>pilih...</option>
-                            <option {{ $guru->nuptk == "laki-laki" ? "selected" : "" }} value="laki-laki">laki-laki</option>
-                            <option {{ $guru->nuptk == "perempuan" ? "selected" : "" }}  value="perempuan">perempuan</option>
+                            <option value="laki-laki">laki-laki</option>
+                            <option value="perempuan">perempuan</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>Status Kepegawaian <i class="text-warning">( *wajib )</i></label>
-                          <input name="status_kepegawaian" type="text" class="form-control" placeholder="" value="{{ old('status_kepegawaian') ? old('status_kepegawaian') : $guru->status_kepegawaian }}">
+                          <input name="status_pegawai" type="text" class="form-control" placeholder="" value="{{ old('status_pegawai') }}">
                         </div>
                       </div>
                       <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label for="jenis_ptk">Jenis ptk <i class="text-warning">( *wajib )</i></label>
-                          <select name="jenis_ptk" class="form-control" id="jenis_ptk">
-                            <option disabled>pilih...</option>
-                            <option {{ $guru->jenis_ptk == "Guru kelas" ? "selected" : "" }} value="Guru kelas">Guru kelas</option>
-                            <option {{ $guru->jenis_ptk == "Guru matapelajaran" ? "selected" : "" }} value="Guru matapelajaran">Guru matapelajaran</option>
-                          </select>
+                          <input name="jenis_ptk" type="text" class="form-control" placeholder="" value="{{ old('jenis_ptk') }}">
                         </div>
                       </div>
                     </div>
@@ -77,14 +73,13 @@
                       <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>Tugas tambahan</label>
-                          <input name="tugas_tambahan" type="text" class="form-control" placeholder="" value="{{ old('tugas_tambahan') ? old('tugas_tambahan') : $guru->tugas_tambahan }}">
+                          <input name="tugas_tambahan" type="text" class="form-control" value="{{ old('tugas_tambahan') }}">
                         </div>
                       </div>
                     </div>
-
                     <div class="row">
-                      <a href="{{ route('dataGuru') }}" class="btn btn-danger mx-auto" style="width: 20%">Batal</a>
-                      <button class="btn btn-primary mx-auto" style="width: 20%">Ubah</button>
+                      <a href="{{ route('dataAdmin') }}" class="btn btn-danger mx-auto" style="width: 20%">Batal</a>
+                      <button type="submit" class="btn btn-primary mx-auto" style="width: 20%">Tambah</button>
                     </div>
                   </form>
                 </div>

@@ -16,10 +16,10 @@ class AkunSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
-            'name' => 'admin',
+            'nama' => 'admin',
             'email' => 'admin@gmail.com',
             'nuptk' => '12345678',
-            'jenis_kelamin' => 'p',
+            'jenis_kelamin' => 'Perempuan',
             'tempat_lahir' => 'serang',
             'tanggal_lahir' => now(),
             'status_pegawai' => 'admin',
@@ -44,12 +44,12 @@ class AkunSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
         // DB::table('guru')->insert([
-        //     'name' => 'guru',
+        //     'nama' => 'guru',
         //     'email' => 'guru@gmail.com',
         //     'password' => Hash::make('password'),
         // ]);
         // DB::table('siswa')->insert([
-        //     'name' => 'siswa',
+        //     'nama' => 'siswa',
         //     'email' => 'siswa@gmail.com',
         //     'password' => Hash::make('password'),
         // ]);
